@@ -18,7 +18,7 @@
             {{ launch.windowstart }} (Time unconfirmed).
           </show>
           <show when={{ launch.countdown }}>
-            T-{{ launch.countdown }} <show when={{ launch.window_length }}><small>Window Length: {{ launch.window_length }}</small></show>
+            T{{ launch.countdown }} <show when={{ launch.window_length }}><small>Window Length: {{ launch.window_length }}</small></show>
           </show>
           <show>
             {{ launch.windowstart }} <show when={{ launch.window_length }}><small>Window Length: {{ launch.window_length }}</small></show>

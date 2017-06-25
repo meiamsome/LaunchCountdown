@@ -3,7 +3,7 @@
 
   "name": "Launch Indicator",
   "description": "This extension shows details about rocket launches.",
-  "version": "1.0",
+  "version": "1.1",
 
   "browser_action": {
     "default_popup": "popup.html"

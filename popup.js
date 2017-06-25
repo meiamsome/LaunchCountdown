@@ -32,19 +32,24 @@ window.addEventListener('load', function() {
   }
 
   let difference = function(start, end) {
+    let sign = "+";
     let delta = end - start;
+    if(end < start) {
+      sign = "-";
+      delta = -delta;
+    }
     if(delta > 48 * 60 * 60 * 1000) return null;
     let seconds = ("00" + Math.floor(delta / 1000) % 60).substr(-2);
     let minutes = ("00" + Math.floor(delta / 60000) % 60).substr(-2);
     let hours = Math.floor(delta / 3600000);
-    return [hours, minutes, seconds].join(":");
+    return sign + [hours, minutes, seconds].join(":");
   }
 
 
   setInterval(function() {
     if(launches.map(function(launch, id) {
       let editted = false;
-      let cd = difference(Date.now(), launch.wsstamp * 1000);
+      let cd = difference(launch.wsstamp * 1000, Date.now());
       if(cd !== null && cd !== launch.countdown) {
         launch.countdown = cd;
         editted = true;
